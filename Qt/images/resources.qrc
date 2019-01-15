@@ -1,0 +1,12 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>hult_prize.jpg</file>
+    <file>main.jpg</file>
+    <file>logo.png</file>
+    <file>favicon.ico</file>
+    <file>login.png</file>
+    <file>signUp.png</file>
+    <file>edit.png</file>
+    <file>upload.png</file>
+</qresource>
+</RCC>
