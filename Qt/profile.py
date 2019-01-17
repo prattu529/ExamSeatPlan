@@ -7,11 +7,24 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from EditRoomProfile import Ui_editProfile
 
 class Ui_profile(object):
+
+    def inputRoom(self):
+        userInput=QtWidgets.QInputDialog()
+        i, okPressed = userInput.getInt(userInput, "Input lab", "Enter number of rooms/labs", 0, 1, 100, 1)
+        if okPressed:
+            # take this input i as no of labs
+            self.editProfile = QtWidgets.QDialog()
+            self.ui = Ui_editProfile()
+            self.ui.setupUi(self.editProfile)
+            self.editProfile.setModal(True)
+            self.editProfile.exec_()
+
     def setupUi(self, profile):
         profile.setObjectName("profile")
-        profile.setFixedSize(734, 486)
+        profile.resize(734, 486)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/favicon.ico"), QtGui.QIcon.Normal, QtGui.QIcon.On)
         profile.setWindowIcon(icon)
@@ -24,15 +37,23 @@ class Ui_profile(object):
 "QLabel#xlsx:hover, #room:hover{\n"
 "background-color:grey;\n"
 "}\n"
+"\n"
+"QPushButton{\n"
+"font-family:\"Comic Sans MS\",cursive,sans-serif;\n"
+"border:solid;\n"
+"border-width:1px;\n"
+"border-color:black;\n"
+"}\n"
+"QPushButton:hover{\n"
+"background-color:grey;\n"
+"}\n"
 "")
         self.centralwidget = QtWidgets.QWidget(profile)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(20, 380, 191, 41))
         font = QtGui.QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
+        font.setFamily("Comic Sans MS,cursive,sans-serif")
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.imgRoom = QtWidgets.QLabel(self.centralwidget)
@@ -51,26 +72,6 @@ class Ui_profile(object):
         self.imgUpload.setPixmap(QtGui.QPixmap(":/upload.png"))
         self.imgUpload.setScaledContents(True)
         self.imgUpload.setObjectName("imgUpload")
-        self.room = QtWidgets.QLabel(self.centralwidget)
-        self.room.setGeometry(QtCore.QRect(200, 250, 151, 31))
-        font = QtGui.QFont()
-        font.setFamily("Comic Sans MS,cursive,sans-serif")
-        font.setPointSize(12)
-        font.setBold(True)
-        font.setWeight(75)
-        self.room.setFont(font)
-        self.room.setAlignment(QtCore.Qt.AlignCenter)
-        self.room.setObjectName("room")
-        self.xlsx = QtWidgets.QLabel(self.centralwidget)
-        self.xlsx.setGeometry(QtCore.QRect(390, 250, 131, 31))
-        font = QtGui.QFont()
-        font.setFamily("Comic Sans MS,cursive,sans-serif")
-        font.setPointSize(10)
-        font.setBold(True)
-        font.setWeight(75)
-        self.xlsx.setFont(font)
-        self.xlsx.setAlignment(QtCore.Qt.AlignCenter)
-        self.xlsx.setObjectName("xlsx")
         self.profileSeat = QtWidgets.QLabel(self.centralwidget)
         self.profileSeat.setGeometry(QtCore.QRect(260, 30, 211, 61))
         font = QtGui.QFont()
@@ -80,6 +81,24 @@ class Ui_profile(object):
         self.profileSeat.setFont(font)
         self.profileSeat.setAlignment(QtCore.Qt.AlignCenter)
         self.profileSeat.setObjectName("profileSeat")
+        self.btnRoom = QtWidgets.QPushButton(self.centralwidget)
+        self.btnRoom.setGeometry(QtCore.QRect(200, 250, 151, 31))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS,cursive,sans-serif")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnRoom.setFont(font)
+        self.btnRoom.setObjectName("btnRoom")
+        self.btnXLSX = QtWidgets.QPushButton(self.centralwidget)
+        self.btnXLSX.setGeometry(QtCore.QRect(390, 250, 131, 31))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS,cursive,sans-serif")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.btnXLSX.setFont(font)
+        self.btnXLSX.setObjectName("btnXLSX")
         profile.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(profile)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 734, 21))
@@ -88,8 +107,8 @@ class Ui_profile(object):
         self.statusbar = QtWidgets.QStatusBar(profile)
         self.statusbar.setObjectName("statusbar")
         profile.setStatusBar(self.statusbar)
-        self.room.setBuddy(self.imgRoom)
-        self.xlsx.setBuddy(self.imgUpload)
+
+        self.btnRoom.clicked.connect(self.inputRoom)
 
         self.retranslateUi(profile)
         QtCore.QMetaObject.connectSlotsByName(profile)
@@ -98,9 +117,9 @@ class Ui_profile(object):
         _translate = QtCore.QCoreApplication.translate
         profile.setWindowTitle(_translate("profile", "Exam Seat Planner"))
         self.pushButton.setText(_translate("profile", "Past seat plans"))
-        self.room.setText(_translate("profile", "<html><head/><body><p>Edit Room Profile</p></body></html>"))
-        self.xlsx.setText(_translate("profile", "<html><head/><body><p><span style=\" font-size:12pt;\">Upload XLSX </span></p></body></html>"))
         self.profileSeat.setText(_translate("profile", "Exam Seat Planner"))
+        self.btnRoom.setText(_translate("profile", "Edit Room Profile"))
+        self.btnXLSX.setText(_translate("profile", "Upload XLSX"))
 
 import images.resources
 

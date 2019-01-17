@@ -7,8 +7,18 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from profile import Ui_profile
+import main
 
 class Ui_Dialog(object):
+
+    def gotoProfile(self):
+        self.profile = QtWidgets.QMainWindow()
+        self.ui = Ui_profile()
+        self.ui.setupUi(self.profile)
+        self.profile.show()
+
+
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.setFixedSize(469, 301)
@@ -59,8 +69,9 @@ class Ui_Dialog(object):
         self.loginName.setBuddy(self.loginEditName)
         self.loginPass.setBuddy(self.loginEditPass)
 
+
         self.retranslateUi(Dialog)
-        self.loginButton.accepted.connect(Dialog.accept)
+        self.loginButton.accepted.connect(self.gotoProfile)
         self.loginButton.clicked['QAbstractButton*'].connect(Dialog.close)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 

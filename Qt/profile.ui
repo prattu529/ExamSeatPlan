@@ -28,6 +28,16 @@ border-color:black;
 QLabel#xlsx:hover, #room:hover{
 background-color:grey;
 }
+
+QPushButton{
+font-family:&quot;Comic Sans MS&quot;,cursive,sans-serif;
+border:solid;
+border-width:1px;
+border-color:black;
+}
+QPushButton:hover{
+background-color:grey;
+}
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -42,9 +52,7 @@ background-color:grey;
     </property>
     <property name="font">
      <font>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>Comic Sans MS,cursive,sans-serif</family>
      </font>
     </property>
     <property name="text">
@@ -73,7 +81,7 @@ background-color:grey;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="../../../../Qt/images/resources.qrc">:/edit.png</pixmap>
+     <pixmap resource="images/resources.qrc">:/edit.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -95,64 +103,10 @@ background-color:grey;
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="../../../../Qt/images/resources.qrc">:/upload.png</pixmap>
+     <pixmap resource="images/resources.qrc">:/upload.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="room">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>250</y>
-      <width>151</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Comic Sans MS,cursive,sans-serif</family>
-      <pointsize>12</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Edit Room Profile&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="buddy">
-     <cstring>imgRoom</cstring>
-    </property>
-   </widget>
-   <widget class="QLabel" name="xlsx">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>250</y>
-      <width>131</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Comic Sans MS,cursive,sans-serif</family>
-      <pointsize>10</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Upload XLSX &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="buddy">
-     <cstring>imgUpload</cstring>
     </property>
    </widget>
    <widget class="QLabel" name="profileSeat">
@@ -178,6 +132,48 @@ background-color:grey;
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <widget class="QPushButton" name="btnRoom">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>250</y>
+      <width>151</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Comic Sans MS,cursive,sans-serif</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Edit Room Profile</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnXLSX">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>250</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Comic Sans MS,cursive,sans-serif</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Upload XLSX</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -193,6 +189,7 @@ background-color:grey;
  </widget>
  <resources>
   <include location="../../../../Qt/images/resources.qrc"/>
+  <include location="images/resources.qrc"/>
  </resources>
  <connections/>
 </ui>

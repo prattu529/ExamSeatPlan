@@ -6,9 +6,26 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+import loggin
+import signup
 
 class Ui_MainWindow(object):
+    def on_pushButton_clicked(self):
+        self.loginDialog = QtWidgets.QDialog()
+        self.ui = loggin.Ui_Dialog()
+        self.ui.setupUi(self.loginDialog)
+        self.loginDialog.setModal(True)
+        self.loginDialog.exec_()
+
+    def on_signUp_clicked(self):
+        self.signUpDialog=QtWidgets.QDialog()
+        self.ui=signup.Ui_Dialog()
+        self.ui.setupUi(self.signUpDialog)
+        self.signUpDialog.setModal(True)
+        self.signUpDialog.exec_()
+
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(800, 550)
@@ -86,6 +103,10 @@ class Ui_MainWindow(object):
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
 
+        self.btnLogin.clicked.connect(self.on_pushButton_clicked)
+        self.pushButton_2.clicked.connect(self.on_signUp_clicked)
+
+
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -106,4 +127,5 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
+
 
